@@ -113,6 +113,7 @@
   },
   "defaultProject": "angular-material-template",
   "cli": {
+    "analytics": "4a41d720-7e65-412e-9fb9-00cdba3b27c2",
     "defaultCollection": "@angular-eslint/schematics"
   }
 }

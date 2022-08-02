@@ -5,6 +5,101 @@
             <mat-card-content>
                 <h2>Icons</h2>
 
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Input</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Textarea</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+            <mat-card-content>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                </mat-radio-group>
+
+                <section class="example-section" [formGroup]="toppings">
+                    <h4>Select your toppings:</h4>
+                    <p>
+                        <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
+                    </p>
+                    <p>
+                        <mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox>
+                    </p>
+                </section>
+                <section class="example-section" [formGroup]="toppings">
+                    <h4>You chose:</h4>
+                    {{toppings.value | json}}
+                </section>
+            </mat-card-content>
+
+            <mat-card-content>
+                <mat-form-field class="example-chip-list" appearance="fill">
+                    <mat-label>Favorite Fruits</mat-label>
+                    <mat-chip-list #chipList aria-label="Fruit selection">
+                        <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                            {{fruit.name}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip>
+                        <input placeholder="New fruit..." [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-content>
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Inherited calendar color</mat-label>
+                    <input matInput [matDatepicker]="picker1">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill">
+                    <mat-label>Custom calendar color</mat-label>
+                    <input matInput [matDatepicker]="picker2">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter a date range</mat-label>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                        <input matStartDate formControlName="start" placeholder="Start date">
+                        <input matEndDate formControlName="end" placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+
+                <p>Selected range: {{range.value | json}}</p>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-content>
+                <h2>Icons</h2>
+
                 <iframe src="https://design.google.com/icons/">
                     <p>Your browser does not support iframes.</p>
                 </iframe>
