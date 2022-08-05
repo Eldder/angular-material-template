@@ -9,6 +9,11 @@ const appRoutes: Routes = [
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
   },
   {
+    path: 'fixed',
+    loadChildren: () =>
+      import('./fixed/fixed.module').then((m) => m.FixedModule)
+  },
+  {
     path: 'dashboard',
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard]

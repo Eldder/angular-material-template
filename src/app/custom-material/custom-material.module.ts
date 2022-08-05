@@ -35,6 +35,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { SelectCheckAllComponent } from './select-check-all/select-check-all.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
+import {MatTreeModule} from '@angular/material/tree';
 
 export const MY_FORMATS = {
   parse: {
@@ -50,8 +51,8 @@ export const MY_FORMATS = {
 
 @NgModule({
   imports: [
-    CommonModule,
-    MatMomentDateModule,
+    CommonModule,MatTreeModule,
+    MatMomentDateModule, MatRadioModule, MatFormFieldModule, MatSliderModule, MatStepperModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
     MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
     MatSnackBarModule, MatProgressSpinnerModule, MatDatepickerModule,
@@ -61,7 +62,7 @@ export const MY_FORMATS = {
     MatExpansionModule, DragDropModule, MatSortModule, MatGridListModule
   ],
   exports: [
-    CommonModule,
+    CommonModule, MatRadioModule, MatFormFieldModule, MatSliderModule, MatStepperModule,MatTreeModule,
     MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
     MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
     MatSnackBarModule, MatMenuModule, MatProgressSpinnerModule, MatDatepickerModule,
